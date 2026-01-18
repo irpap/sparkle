@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Sparkle Voice Keyboard</title>
+    <meta name="description" content="Sparkle Privacy Policy - We collect nothing. Everything happens on your device.">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" href="sparkle.png">
+    <link rel="apple-touch-icon" href="sparkle.png">
+
     <style>
         * {
             margin: 0;
@@ -11,95 +17,239 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(65, 232, 255, 0.3);
+            border-radius: 3px;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
             line-height: 1.8;
-            color: #333;
-            background: #f9f9f9;
-            padding: 40px 20px;
+            color: #f5f5f7;
+            background: #0D0D0F;
+            min-height: 100vh;
+        }
+
+        /* Ambient background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(65, 232, 255, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(128, 0, 255, 0.04) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
             max-width: 700px;
             margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 80px 24px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 48px;
         }
 
         h1 {
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #41E8FF 0%, #00B4D8 50%, #41E8FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .updated {
-            color: #666;
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.9rem;
-            margin-bottom: 30px;
         }
 
-        h2 {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-            font-size: 1.3rem;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #444;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #444;
-        }
-
+        /* Short version glassmorphism card */
         .highlight {
-            background: #e8f4f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+            background: rgba(65, 232, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 28px;
+            border-radius: 24px;
+            margin: 32px 0 48px 0;
+            border: 1px solid rgba(65, 232, 255, 0.15);
+            box-shadow: 0 0 40px rgba(65, 232, 255, 0.08),
+                        inset 0 0 20px rgba(65, 232, 255, 0.03);
         }
 
         .highlight p {
             margin: 0;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
+        .highlight strong {
+            color: #41E8FF;
+        }
+
+        /* Section styling */
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        p strong {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Custom list with checkmarks */
+        ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.65);
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ADE80;
+            font-weight: 600;
+        }
+
+        /* "NOT" list uses X marks */
+        .not-list li::before {
+            content: '✗';
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Links */
         a {
-            color: #0083b0;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        footer a {
+            color: #41E8FF;
             text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* GDPR badge */
+        .gdpr-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #4ADE80;
+            margin-top: 12px;
+        }
+
+        .gdpr-badge::before {
+            content: '✓';
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        /* Ghost button */
+        .back-button {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            border-color: rgba(65, 232, 255, 0.4);
+            color: #41E8FF;
+            background: rgba(65, 232, 255, 0.05);
+            opacity: 1;
+        }
+
+        /* Contact section */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 60px 20px;
+            }
+            .highlight {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: January 2026</p>
+        <header>
+            <h1>Privacy Policy</h1>
+            <p class="updated">Last updated: January 2026</p>
+        </header>
 
         <div class="highlight">
-            <p><strong>The short version:</strong> Sparkle does not collect, store, or transmit any of your data. Everything happens on your device.</p>
+            <p><strong>The short version:</strong> Sparkle does not collect, store, or transmit any of your data. Everything happens on your device. We comply with GDPR by design—we simply don't have your data.</p>
         </div>
 
         <h2>What Data We Collect</h2>
         <p><strong>None.</strong></p>
-        <p>Sparkle is designed from the ground up to be completely private. We do not collect:</p>
+        <p>Sparkle is designed from the ground up to be completely private. Because Sparkle processes all data on-device and collects nothing, no personal data is processed on our servers—fulfilling GDPR "Data Minimization" principles by design.</p>
+        <p>We do not collect:</p>
         <ul>
             <li>Voice recordings</li>
             <li>Transcribed text</li>
@@ -108,13 +258,14 @@
             <li>Usage analytics</li>
             <li>Device identifiers</li>
         </ul>
+        <div class="gdpr-badge">GDPR Compliant by Design</div>
 
         <h2>How Sparkle Works</h2>
         <p>Sparkle uses on-device machine learning (WhisperKit) to transcribe your voice to text. All processing happens entirely on your iPhone or iPad. Your voice data never leaves your device.</p>
 
         <h2>Full Access Permission</h2>
         <p>When you enable Sparkle's keyboard, iOS asks for "Full Access." This permission is required for the keyboard extension to communicate with the main Sparkle app for transcription. Despite the scary-sounding name, Sparkle:</p>
-        <ul>
+        <ul class="not-list">
             <li>Does NOT log your keystrokes</li>
             <li>Does NOT access your passwords</li>
             <li>Does NOT transmit any data to the internet</li>
@@ -130,24 +281,28 @@
             <li>Is deleted when you uninstall the app</li>
             <li>Can be cleared manually from the app's settings</li>
         </ul>
+        <p>Under GDPR, you have the right to delete your data at any time. Since all data is stored locally, you can exercise this right by clearing history in settings or simply uninstalling the app.</p>
 
         <h2>Third-Party Services</h2>
         <p>Sparkle does not use any third-party analytics, advertising, or tracking services. We do not integrate with any cloud services.</p>
 
         <h2>Model Downloads</h2>
-        <p>Sparkle downloads AI models from Apple's CDN using iOS On-Demand Resources. This is a standard iOS feature. The only data transmitted is the request for the model file. No user data is sent.</p>
+        <p>Sparkle downloads AI models from Apple's CDN using iOS On-Demand Resources. This is a standard iOS feature that allows apps to download additional content as needed. The only data transmitted is the request for the model file—no user data is sent.</p>
 
         <h2>Children's Privacy</h2>
-        <p>Sparkle does not collect any personal information from anyone, including children under 13.</p>
+        <p>Sparkle does not collect personal information from any users, including those under the age of 16. Since we collect no data whatsoever, Sparkle is safe for users of all ages.</p>
 
         <h2>Changes to This Policy</h2>
         <p>If we ever update this privacy policy, we will post the changes here and update the "Last updated" date above.</p>
 
-        <h2>Contact</h2>
-        <p>If you have any questions about this privacy policy, you can reach us through our GitHub repository.</p>
+        <h2>Data Controller & Contact</h2>
+        <div class="contact-info">
+            <p><strong>Data Controller:</strong> Sparkle App, based in Greece, EU</p>
+            <p style="margin-top: 12px;">If you have any questions about this privacy policy, you can reach us at <a href="mailto:hello@getsparkle.app">hello@getsparkle.app</a></p>
+        </div>
 
         <footer>
-            <a href="index.html">&larr; Back to Sparkle</a>
+            <a href="index.html" class="back-button">← Back to Sparkle</a>
         </footer>
     </div>
 </body>
